@@ -8,12 +8,10 @@ export class MyFilterPipe implements PipeTransform {
 
   transform(value: any[], filter: any): User[] | any {
     if(!value)return null;
-      if(!filter)return value;
-
-      filter = filter.toLowerCase();
-
-      return value.filter(item =>{
-          return JSON.stringify(item).toLowerCase().includes(filter);
-      });
+    if(!filter)return value;
+    filter = filter.toLowerCase();
+    return value.filter(item =>{
+      return JSON.stringify(item).toLowerCase().includes(filter);
+    });
   }
 }

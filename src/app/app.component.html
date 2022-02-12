@@ -1,5 +1,9 @@
 <h1>{{title}}</h1>
+<h4>Поиск по совпадениям</h4>
 <input type="text" [(ngModel)] = 'filter'>
+<h4>Поиск больше /меньше</h4>
+<input type="text" [(ngModel)] = 'minMax'>
+<p>{{minMax}}</p>
 <table [cellSpacing]="5">
   <thead>
     <th>Id</th>
@@ -8,11 +12,11 @@
     <th>Data of registered</th>
     <th>Admin</th>
   </thead>
-  <tbody *ngFor="let user of users | myFilter:filter">
-    <td>{{user.id}}</td>
-    <td>{{user.name}}</td>
-    <td>{{user.age}}</td>
-    <td>{{user.registeredData | date:'mediumDate'}}</td>
-    <td>{{user.admin}}</td>
+  <tbody *ngFor="let user of users | myFilter:filter | minmax:minMax" >
+    <td appHoverEffect>{{user.id}}</td>
+    <td appHoverEffect>{{user.name}}</td>
+    <td appHoverEffect>{{user.age}}</td>
+    <td appHoverEffect>{{user.registeredData | date:'mediumDate'}}</td>
+    <td appHoverEffect>{{user.admin}}</td>
   </tbody>
 </table>

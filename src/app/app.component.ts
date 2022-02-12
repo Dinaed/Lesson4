@@ -10,6 +10,7 @@ export class AppComponent {
   title = 'Lesson4';
   userId:number = 1;
   filter:any;
+  minMax:string ='';
   users:User[] = [
     {
       id: this.userId++,
